@@ -1203,7 +1203,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
             Redraw_Menu();
             }
           break;
-        case MLEVEL_C:
+        case MLEVEL_RC:
           if (draw) {
             Draw_Menu_Item(row, ICON_Axis, (char*)"Right Center");
           }
