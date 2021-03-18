@@ -1119,10 +1119,7 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
       #define MLEVEL_BACK 0
       #define MLEVEL_BL (MLEVEL_BACK + 1)
       #define MLEVEL_TL (MLEVEL_BL + 1)
-      #define MLEVEL_TR (MLEVEL_TL + 1)
-      #define MLEVEL_BR (MLEVEL_TR + 1)
-      #define MLEVEL_C (MLEVEL_BR + 1)
-      #define MLEVEL_RC (MLEVEL_C +1)
+      #define MLEVEL_RC (MLEVEL_TL +1)
       #define MLEVEL_TOTAL MLEVEL_RC
 
       switch (item) {
@@ -1158,39 +1155,6 @@ void CrealityDWINClass::Menu_Item_Handler(uint8_t menu, uint8_t item, bool draw/
             planner.synchronize();
             Redraw_Menu();
           }
-          break;
-        case MLEVEL_TR:
-          if (draw) {
-            Draw_Menu_Item(row, ICON_Axis, (char*)"Top Right");
-          }
-          else {
-            Popup_Handler(MoveWait);
-            gcode.process_subcommands_now_P(PSTR("G0 F4000\nG0 Z10\nG0 X202 Y202\nG0 F300 Z0\nM220 S100"));
-            planner.synchronize();
-            Redraw_Menu();
-          }
-          break;
-        case MLEVEL_BR:
-          if (draw) {
-            Draw_Menu_Item(row, ICON_Axis, (char*)"Bottom Right");
-          }
-          else {
-            Popup_Handler(MoveWait);
-            gcode.process_subcommands_now_P(PSTR("G0 F4000\nG0 Z10\nG0 X202 Y32.6\nG0 F300 Z0\nM220 S100"));
-            planner.synchronize();
-            Redraw_Menu();
-          }
-          break;
-        case MLEVEL_C:
-          if (draw) {
-            Draw_Menu_Item(row, ICON_Axis, (char*)"Center");
-          }
-          else {
-            Popup_Handler(MoveWait);
-            gcode.process_subcommands_now_P(PSTR("G0 F4000\nG0 Z10\nG0 X117.3 Y117.3\nG0 F300 Z0\nM220 S100"));
-            planner.synchronize();
-            Redraw_Menu();
-            }
           break;
         case MLEVEL_RC:
           if (draw) {
